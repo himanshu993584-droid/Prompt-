@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <p>click calculate to start Calculator</p>
+    <p id="input1"></p>
+    
+    <p id="input2"></p>
+    <p id="result"></p>
+    <button onclick="calculate()">Calculate</button>
+    <script>
+        function calculate() {
+            var num1 = parseFloat(prompt("Enter first number:"));
+            var num2 = parseFloat(prompt("Enter second number:"));
+            var operation = prompt("Enter operation (add, subtract, multiply, divide):").toLowerCase();
+            var result;
+
+            switch (operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    if (num2 !== 0) {
+                        result = num1 / num2;
+                    } else {
+                        result = "Error: Division by zero";
+                    }
+                    break;
+                default:
+                    result = "Invalid operation";
+            }
+
+            document.getElementById("input1").innerHTML = "First Number: " + num1;
+            document.getElementById("input2").innerHTML = "Second Number: " + num2;
+            document.getElementById("result").innerHTML = "Result: " + result;
+        }
+    </script>
+</body>
+</html>
